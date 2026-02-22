@@ -525,6 +525,7 @@ mod tests {
             LLMBackend::Google,
             LLMBackend::Groq,
             LLMBackend::AzureOpenAI,
+            LLMBackend::ZAI,
         ];
 
         for backend in backends {
