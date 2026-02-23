@@ -39,6 +39,8 @@ pub enum LLMBackend {
     OpenRouter,
     /// MiniMax API provider
     MiniMax,
+    /// Z.AI API provider (GLM models)
+    Zai,
 }
 
 /// Implements string parsing for LLMBackend enum.
@@ -83,6 +85,7 @@ impl std::str::FromStr for LLMBackend {
             "azure-openai" => Ok(LLMBackend::AzureOpenAI),
             "openrouter" => Ok(LLMBackend::OpenRouter),
             "minimax" => Ok(LLMBackend::MiniMax),
+            "zai" => Ok(LLMBackend::Zai),
             _ => Err(LLMError::InvalidRequest(format!(
                 "Unknown LLM backend: {s}"
             ))),

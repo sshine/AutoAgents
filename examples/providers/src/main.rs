@@ -6,6 +6,7 @@ mod minimax;
 mod ollama;
 mod openai;
 mod openrouter;
+mod zai;
 
 use autoagents::init_logging;
 use clap::{Parser, ValueEnum};
@@ -18,6 +19,7 @@ pub enum Backend {
     Ollama,
     Groq,
     MiniMax,
+    Zai,
 }
 
 #[derive(Parser, Debug)]
@@ -59,6 +61,10 @@ async fn main() -> anyhow::Result<()> {
         Backend::MiniMax => {
             println!("Using MiniMax backend (requires MINIMAX_API_KEY)");
             minimax::run().await?;
+        }
+        Backend::Zai => {
+            println!("Using Z.AI backend (requires ZAI_API_KEY)");
+            zai::run().await?;
         }
     }
 

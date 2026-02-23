@@ -24,6 +24,7 @@ full = [
     "openrouter",
     "minimax",
     "optim",
+    "zai",
 ]
 openai = []
 anthropic = []
@@ -36,7 +37,11 @@ groq = []
 azure_openai = []
 openrouter = []
 minimax = []
+<<<<<<< HEAD
 optim = []
+=======
+zai = []
+>>>>>>> fbdbeb1 ([FEATURE]: Add Z.AI API integration)
 
 [dependencies]
 async-trait = { workspace = true }

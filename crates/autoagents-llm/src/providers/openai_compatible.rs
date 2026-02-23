@@ -162,6 +162,8 @@ pub struct OpenAIChatMsg {
     #[serde(default, alias = "reasoning")]
     pub reasoning_content: Option<String>,
     pub tool_calls: Option<Vec<ToolCall>>,
+    #[serde(default)]
+    pub reasoning_content: Option<String>,
 }
 
 #[derive(Deserialize, Debug, Serialize)]
@@ -1795,6 +1797,7 @@ mod tests {
                             arguments: "{\"q\":\"value\"}".to_string(),
                         },
                     }]),
+                    reasoning_content: None,
                 },
             }],
             usage: Some(Usage {

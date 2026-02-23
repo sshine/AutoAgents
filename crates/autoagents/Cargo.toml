@@ -24,6 +24,7 @@ azure_openai = ["autoagents-llm/azure_openai"]
 openrouter = ["autoagents-llm/openrouter"]
 minimax = ["autoagents-llm/minimax"]
 optim = ["autoagents-llm/optim"]
+zai = ["autoagents-llm/zai"]
 logging = ["dep:env_logger"]
 wasmtime = ["autoagents-core/wasmtime"]
 

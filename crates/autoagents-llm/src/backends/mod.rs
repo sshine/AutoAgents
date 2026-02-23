@@ -30,3 +30,6 @@ pub mod openrouter;
 
 #[cfg(feature = "minimax")]
 pub mod minimax;
+
+#[cfg(feature = "zai")]
+pub mod zai;
