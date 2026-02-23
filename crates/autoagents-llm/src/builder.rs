@@ -37,6 +37,8 @@ pub enum LLMBackend {
     AzureOpenAI,
     /// OpenRouter API provider for various models
     OpenRouter,
+    /// Z.AI API provider (GLM models)
+    Zai,
 }
 
 /// Implements string parsing for LLMBackend enum.
@@ -80,6 +82,7 @@ impl std::str::FromStr for LLMBackend {
             "groq" => Ok(LLMBackend::Groq),
             "azure-openai" => Ok(LLMBackend::AzureOpenAI),
             "openrouter" => Ok(LLMBackend::OpenRouter),
+            "zai" => Ok(LLMBackend::Zai),
             _ => Err(LLMError::InvalidRequest(format!(
                 "Unknown LLM backend: {s}"
             ))),

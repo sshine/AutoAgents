@@ -5,6 +5,7 @@ mod groq;
 mod ollama;
 mod openai;
 mod openrouter;
+mod zai;
 
 use autoagents::init_logging;
 use clap::{Parser, ValueEnum};
@@ -16,6 +17,7 @@ pub enum Backend {
     Anthropic,
     Ollama,
     Groq,
+    Zai,
 }
 
 #[derive(Parser, Debug)]
@@ -53,6 +55,10 @@ async fn main() -> anyhow::Result<()> {
         Backend::Groq => {
             println!("Using Groq backend (requires GROQ_API_KEY)");
             groq::run().await?;
+        }
+        Backend::Zai => {
+            println!("Using Z.AI backend (requires ZAI_API_KEY)");
+            zai::run().await?;
         }
     }
 

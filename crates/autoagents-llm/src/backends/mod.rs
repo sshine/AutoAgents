@@ -27,3 +27,6 @@ pub mod azure_openai;
 
 #[cfg(feature = "openrouter")]
 pub mod openrouter;
+
+#[cfg(feature = "zai")]
+pub mod zai;

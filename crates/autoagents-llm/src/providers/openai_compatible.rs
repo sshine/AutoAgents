@@ -160,6 +160,8 @@ pub struct OpenAIChatMsg {
     pub role: String,
     pub content: Option<String>,
     pub tool_calls: Option<Vec<ToolCall>>,
+    #[serde(default)]
+    pub reasoning_content: Option<String>,
 }
 
 #[derive(Deserialize, Debug, Serialize)]
@@ -264,6 +266,12 @@ impl ChatResponse for OpenAIChatResponse {
         self.choices
             .first()
             .and_then(|c| c.message.tool_calls.clone())
+    }
+
+    fn thinking(&self) -> Option<String> {
+        self.choices
+            .first()
+            .and_then(|c| c.message.reasoning_content.clone())
     }
 
     fn usage(&self) -> Option<Usage> {
@@ -1760,6 +1768,7 @@ mod tests {
                             arguments: "{\"q\":\"value\"}".to_string(),
                         },
                     }]),
+                    reasoning_content: None,
                 },
             }],
             usage: Some(Usage {
